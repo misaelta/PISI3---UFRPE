@@ -1,4 +1,5 @@
 import streamlit as st
+import pandas as pd
 import streamlit.components.v1 as components
 st.set_page_config(
     page_title = "Teste do Streamlit por Gabriel Alves",
@@ -8,14 +9,7 @@ st.set_page_config(
     }
 )
 
-nome = st.text_input('Digite o seu nome:')
-if nome == '':
-    st.markdown('O STREAMLIT RODOU!')
-else:
-    st.markdown(f'''
-        Oi, <b style="color:#0033FF; text-transform:uppercase">{nome}</b>.<br>
-        O STREAMLIT RODOU!<br>
-        E ele aceita <code>HTML</code> e <code>CSS</code>!
-    ''', unsafe_allow_html=True)
+df = pd.read_csv("dataset/acidentes2015.csv",encoding="UTF-8")
 
+print(df.head())
 
